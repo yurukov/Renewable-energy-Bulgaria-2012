@@ -1,13 +1,18 @@
 Renewable energy in Bulgaria 2012
 ==============================
 
-*DEMO:*
+DEMO:*
+
 	http://opendata.yurukov.net/vei/en (English)
+
 	http://opendata.yurukov.net/vei (Bulgarian)
 
 *Latest data:*
+
 	http://opendata.yurukov.net/vei/data
+
 *Other opendata from Bulgaria:*
+
 	http://opendata.yurukov.net/
 
 This visualisation is built on D3.js, Crossfilter.js, DC.js and Leaflet. It builds a DC.js like chart for single selection filtering of Leaflet map markers. It also implements a hashing mechnism that allows direct linking to a filter combination. The filter hashed in the URL will be loaded when the charts finish parsing.
