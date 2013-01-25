@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>Отворени данни за енергията от възобновяеми източници в България</title>
+
+	<meta itemprop="name" content="Отворени данни за енергията от възобновяеми източници в България"/>
+	<meta itemprop="description" content="Интерактивен инструмент за изследване на данните за произведената и изкупена енергията от възобновяеми източници в България."/>
+
+	<meta charset="UTF-8">
+
+	<link rel="stylesheet" type="text/css" href="/vei/res/dc.css"/>
+	<link type="text/css" href="http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.css" rel="stylesheet"/>
+	<!--[if lte IE 8]><link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.ie.css" /><![endif]-->
+	<link rel="stylesheet" type="text/css" href="/vei/res/style.css?ynocache"/>
+
+
+	<meta http-equiv="author" content="Boyan Yurukov" />
+	<meta http-equiv="contact" content="boyan@yurukov.net" />
+	<meta name="keywords" content="ВЕИ, възобновяеми източници на енергия, централи, ток, фотоволтици, статистика, opendata, турбини, вец, данни" />
+
+	<link rel="image_src" type="image/jpg" href="/vei/res/vei1.png" />
+	<meta itemprop="name" content="Отворени данни за енергията от възобновяеми източници в България"/>
+	<meta itemprop="description" content="Интерактивен инструмент за изследване на данните за произведената и изкупена енергията от възобновяеми източници в България."/>
+	<meta itemprop="image" content="/vei/res/vei1.png"/>
+
+	<meta property="og:url" content="http://opendata.yurukov.net/vei/" />
+	<meta property="og:type" content="website" />       
+	<meta property="og:title" content="Отворени данни за енергията от възобновяеми източници в България" />
+	<meta property="og:description" content="Интерактивен инструмент за изследване на данните за произведената и изкупена енергията от възобновяеми източници в България." />
+	<meta property="og:image" content="http://opendata.yurukov.net/vei/res/vei1.png" /> 
+</head>
+<body>
+
+<div class="content">
+
+<h1>Отворени данни за енергията от възобновяеми източници в България</h1>
+
+<div style="float:left; margin-right:20px; padding-right:15px; border-right:1px dashed gray; ">
+<a id="lang_link" href="/vei/en"><img src="/vei/res/flag_02.png" alt=""/> English</a><br/><br/>
+
+<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fopendata.yurukov.net%2Fvei&amp;send=false&amp;layout=box_count&amp;width=80&amp;show_faces=false&amp;font=verdana&amp;colorscheme=light&amp;action=like&amp;height=65&amp;appId=213681481985740" 
+scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:94px; height:65px;" allowTransparency="true"></iframe>
+<br/>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://opendata.yurukov.net/vei/" data-via="yurukov" data-count="vertical">Tweet</a>
+</div>
+
+<div style="float:left;margin:0 20px 20px 0; padding-right:20px; border-right:1px dashed gray; width:35%; text-align:justify;">
+На тази графика ще намерите всички публични данни за изкупената енергия от възобоновими източници в България. Оригиналните данни ще намерите
+<a href="http://www.seea.government.bg/index.php?option=com_content&view=article&id=9279&Itemid=234&lang=bg" target="_blank">тук</a>, а 
+данните в по-удобен формат са <a href="data" target="_blank">тук</a>. Благодаря на <a href="http://chara.blog.bg/" target="_blank">Светла Василева</a>,
+че ме насочи към тях. 
+<br/>Целта на тази визуализация е да си представим по-добре какво е 
+разпределението на производството в страната, какъв тип е и кой изкупува енегията. Поискал съм информация за 
+производството на енергия в останалите централи през 2012, за да можем да сравним. Ако иматe такава информация, моля пишете ми на 
+yurukov@gmail.com.
+<br/>Посетете също <a href="http://glasuvam.org/kak" target="_blank">Glasuvam.org/kak</a> и 
+<a href="http://glasuvam.org/" target="_blank">Glasuvam.org</a> - другият ми проект свързан с референдума.
+<br/>
+<br/>
+<i>Боян Юруков</i>
+</div>
+<div style="margin:0 0 20px 0; text-align:justify;">
+Данните могат да бъдат филтрирани по различни начини. Когато натиснете на някоя графика, адресът горе се променя. Когато го споделите,
+отворилите го ще видят същото, което и вие. Ето няколко примера: 
+<ul style="padding:0 50px 0 560px;list-style-type:circle;">
+<li><a href="javascript:;" onClick="filter([null,'СЕ',null,[2012,2013]]);">Всички фотоволтици</a> пуснати през 2012</li>
+<li><a href="javascript:;" onClick="filter([null,null,'НЕК',[1999,2013]]);">Централи пуснати след '89</a>, от които НЕК купува ток</li>
+<li><a href="javascript:;" onClick="filter([null,null,null,null,1206]);">Произведена от ВЕЦ Батак</a> енергия през 2012</li>
+<li><a href="javascript:;" onClick="filter([null,null,'EON',null]);">Централите</a>, от които ЕОН купува енергия</li>
+<li><a href="javascript:;" onClick="filter([null,'ВЕ','EVN',[2004,2009]]);">Ветрени турбини</a> пуснати в действие между '04 и '09, от които EVN купува ток</li>
+<li>Всички <a href="javascript:;" onClick="filter([null,'БМ']);">ВЕИ-та на биомаса</a> и от <a href="javascript:;" onClick="filter([null,'ОГ']);">отпадни води</a></li>
+<li>Енергия закупена от <a href="javascript:;" onClick="filter([null,null,'Енерго\-Про Продажби']);">Енерго-Про Продажби</a></li>
+<li><a href="javascript:;" onClick="filter([[new Date(2012,0,1),new Date(2012,3,1)],'ВД',null,null,null,[0,7]]);">ВЕЦ-ове под 0.5 MW</a> мощност продавали ток от януари до април 2012</li>
+<li><a href="javascript:;" onClick="filter([null,'ВЕ',null,null,null,[11,13]]);">Ветрени централи над 5 MW</a></li>
+
+</div>
+
+<p class="clear" style="border-bottom:1px dashed gray; padding-bottom:5px; text-align:right;">
+	<a href="javascript:;" onClick="reset();">Изчисти всички филтри</a>
+<p>
+
+<div style="width:980px">
+	<div style="width:210px; float:right;">
+		<div id="chart-mw-type" >
+		    <div class="title">Произв. MWh по тип централа</div>
+		    <div class="clear"></div>
+		</div>
+		<div id="chart-dostavchik"  style="margin-top:15px;">
+		    <div class="title">Изкупени MWh по доставчик</i></div>
+		    <div class="clear"></div>
+		</div>
+	</div>
+
+	<div id="chart-map"></div>
+
+	<div id="chart-mw-day"  style="margin-top:15px;">
+	    <div class="title">Общо произведени MWh седмично по тип на централата</div>
+	    <div class="clear"></div>
+	</div>
+	<div id="chart-plant-created" style="margin-top:15px;">
+	    <div class="title">Общо мощности в MW по годинa на въвеждане в експл. на централите</div>
+	    <div class="clear"></div>
+	</div>
+
+	<div id="chart-plant-capacity" style="margin-top:15px;">
+	    <div class="title">Брой ВЕИ централи разпределени по капацитет в MW</div>
+	    <div class="clear"></div>
+	</div>
+	<div id="chart-mw-percent"  style="margin-top:15px;margin-left:470px;">
+	    <div class="title">Ефективност в % на централите разпределени по капацитет</div>
+	    <div class="clear"></div>
+	</div>
+
+</div>
+
+</div>
+
+<script type="text/javascript" src="/vei/res/d3.js"></script>
+<script type="text/javascript" src="/vei/res/crossfilter.js"></script>
+<script type="text/javascript" src="/vei/res/dc.js"></script>
+<script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.js"></script>
+<script type="text/javascript" src="/vei/res/leaflet.markercluster.js"></script>
+<script type="text/javascript" src="/vei/res/lang_bg.js?ynocache"></script>
+<script type="text/javascript" src="/vei/res/charts.js?ynocache"></script>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-2905006-14']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+
+	</script>
+</body>
+</html>
+

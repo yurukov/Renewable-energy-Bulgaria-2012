@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>Open data for RES energy production in Bulgaria</title>
+
+	<meta itemprop="name" content="Open data for RES energy production in Bulgaria"/>
+	<meta itemprop="description" content="Interactive tool for analysing the public data on production and consumption of renewable energy in Bulgaria in 2012."/>
+
+	<meta charset="UTF-8">
+
+	<link rel="stylesheet" type="text/css" href="/vei/res/dc.css"/>
+	<link type="text/css" href="http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.css" rel="stylesheet"/>
+	<!--[if lte IE 8]><link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.ie.css" /><![endif]-->
+	<link rel="stylesheet" type="text/css" href="/vei/res/style.css?ynocache"/>
+
+
+	<meta http-equiv="author" content="Boyan Yurukov" />
+	<meta http-equiv="contact" content="boyan@yurukov.net" />
+	<meta name="keywords" content="ВЕИ, възобновяеми източници на енергия, централи, ток, фотоволтици, статистика, opendata, турбини, вец, данни" />
+
+	<link rel="image_src" type="image/jpg" href="/vei/res/vei1.png" />
+	<meta itemprop="name" content="Open data for RES energy production in Bulgaria"/>
+	<meta itemprop="description" content="Interactive tool for analysing the public data on production and consumption of renewable energy in Bulgaria in 2012."/>
+	<meta itemprop="image" content="/vei/res/vei1.png"/>
+
+	<meta property="og:url" content="http://opendata.yurukov.net/vei/" />
+	<meta property="og:type" content="website" />       
+	<meta property="og:title" content="Open data for RES energy production in Bulgaria" />
+	<meta property="og:description" content="Interactive tool for analysing the public data on production and consumption of renewable energy in Bulgaria in 2012." />
+	<meta property="og:image" content="http://opendata.yurukov.net/vei/res/vei1.png" /> 
+</head>
+<body>
+
+<div class="content">
+
+<h1>Open data for RES energy production in Bulgaria</h1>
+
+<div style="float:left; margin-right:20px; padding-right:15px; border-right:1px dashed gray; ">
+<a id="lang_link" href="/vei"><img src="/vei/res/flag_01.png" alt=""/> Български</a><br/><br/>
+
+<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fopendata.yurukov.net%2Fvei&amp;send=false&amp;layout=box_count&amp;width=80&amp;show_faces=false&amp;font=verdana&amp;colorscheme=light&amp;action=like&amp;height=65&amp;appId=213681481985740" 
+scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:94px; height:65px;" allowTransparency="true"></iframe>
+<br/>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://opendata.yurukov.net/vei/" data-via="yurukov" data-count="vertical">Tweet</a>
+</div>
+
+<div style="float:left;margin:0 20px 20px 0; padding-right:20px; border-right:1px dashed gray; width:35%; text-align:justify;">
+These charts show all public data for the renewable energy bought by energy distributors in Bulgaria. The original data can be found
+<a href="http://www.seea.government.bg/index.php?option=com_content&view=article&id=9279&Itemid=234&lang=bg" target="_blank">here</a> and
+the in cleaned orderly format <a href="data" target="_blank">here</a>. Thanks to <a href="http://chara.blog.bg/" target="_blank">Svetla Vasileva</a>
+for pointing me to this data.
+<br/>The goal of this visualization is to show us in a more comprehensive way the distribution and types of RES energy production,
+as well as who is buying it. I've asked for data on convensional power plant production in 2012, so that we compare the rates.
+If you have access to such data, please contact me at yurukov@gmail.com
+<br/>You can also visit my other <a href="/" target="_blank">open data projects</a>.
+<br/>
+<br/>
+<i>Boyan Yurukov</i>
+</div>
+<div style="margin:0 0 20px 0; text-align:justify;">
+The data can be filtered from all charts. When you select a filter, the address changes in the address bar. Thus if you open it again
+or share it, the page will be opened in the same state as you left it. Here are some filter examples:
+<ul style="padding:0 50px 0 560px;list-style-type:circle;">
+<li><a href="javascript:;" onClick="filter([null,'СЕ',null,[2012,2013]]);">All solar plants</a> built in 2012</li>
+<li><a href="javascript:;" onClick="filter([null,null,'НЕК',[1999,2013]]);">RES plants built after '89</a>, from which NEC buys power</li>
+<li><a href="javascript:;" onClick="filter([null,null,null,null,1206]);">Energy produced in the Batak dam</a> in 2012</li>
+<li><a href="javascript:;" onClick="filter([null,null,'EON',null]);">RES plants</a>, from which EON buys power</li>
+<li><a href="javascript:;" onClick="filter([null,'ВЕ','EVN',[2004,2009]]);">Wind plants</a> built between 2004-09, from which EVN buys power</li>
+<li>All <a href="javascript:;" onClick="filter([null,'БМ']);">Biomass</a> and <a href="javascript:;" onClick="filter([null,'ОГ']);">waste water</a> plants</li>
+<li>Energy bought by <a href="javascript:;" onClick="filter([null,null,'Енерго\-Про Продажби']);">Energo-Pro Sales</a></li>
+<li><a href="javascript:;" onClick="filter([[new Date(2012,0,1),new Date(2012,3,1)],'ВД',null,null,null,[0,7]]);">Hydro with less than 0.5 MW</a> capacity, which sold power from Jan to April 2012</li>
+<li><a href="javascript:;" onClick="filter([null,'ВЕ',null,null,null,[11,13]]);">Wind farms with more than 5 MW</a> capacity</li>
+
+</div>
+
+<p class="clear" style="border-bottom:1px dashed gray; padding-bottom:5px; text-align:right;">
+	<a href="javascript:;" onClick="reset();">Clear all filters</a>
+<p>
+
+<div style="width:980px">
+	<div style="width:210px; float:right;">
+		<div id="chart-mw-type" >
+		    <div class="title">Produced MWh by RES type</div>
+		    <div class="clear"></div>
+		</div>
+		<div id="chart-dostavchik"  style="margin-top:15px;">
+		    <div class="title">Bought MWh per company</i></div>
+		    <div class="clear"></div>
+		</div>
+	</div>
+
+	<div id="chart-map"></div>
+
+	<div id="chart-mw-day"  style="margin-top:15px;">
+	    <div class="title">Weekly production in MWh by RES type</div>
+	    <div class="clear"></div>
+	</div>
+
+	<div id="chart-plant-created" style="margin-top:15px;">
+	    <div class="title">Sum of RES capacity in MW brought into the grid each year</div>
+	    <div class="clear"></div>
+	</div>
+
+	<div id="chart-plant-capacity" style="margin-top:15px;">
+	    <div class="title">Number of RES plants sorted by capacity in MW</div>
+	    <div class="clear"></div>
+	</div>
+
+	<div id="chart-mw-percent"  style="margin-top:15px;margin-left:470px;">
+	    <div class="title">Efficiency in % of RES plants sorted by capacity</div>
+	    <div class="clear"></div>
+	</div>
+</div>
+
+</div>
+
+<script type="text/javascript" src="/vei/res/d3.js"></script>
+<script type="text/javascript" src="/vei/res/crossfilter.js"></script>
+<script type="text/javascript" src="/vei/res/dc.js"></script>
+<script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.4.5/leaflet.js"></script>
+<script type="text/javascript" src="/vei/res/leaflet.markercluster.js"></script>
+<script type="text/javascript" src="/vei/res/lang_en.js?ynocache"></script>
+<script type="text/javascript" src="/vei/res/charts.js?ynocache"></script>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-2905006-14']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+
+	</script>
+</body>
+</html>
+
